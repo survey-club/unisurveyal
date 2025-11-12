@@ -1,0 +1,101 @@
+.App {
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.App.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.App.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* 공통 버튼 스타일 */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #4A90E2;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #357ABD;
+}
+
+.btn-secondary {
+  background-color: #7B8794;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5F6B77;
+}
+
+.dark .btn-primary {
+  background-color: #5BA3F5;
+}
+
+.dark .btn-primary:hover {
+  background-color: #4A90E2;
+}
+
+/* 입력 필드 스타일 */
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #4A90E2;
+}
+
+.dark .input-field {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #ffffff;
+}
+
+.dark .input-field:focus {
+  border-color: #5BA3F5;
+}
+
+/* 카드 스타일 */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.dark .card {
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dark .card:hover {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}

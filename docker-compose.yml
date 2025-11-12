@@ -1,0 +1,126 @@
+version: '3.8'
+
+services:
+  # 1. Nginx Proxy Manager (역방향 프록시)
+  nginx-proxy-manager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx-proxy-manager
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+      - '81:81'
+    environment:
+      DB_MYSQL_HOST: "mysql"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm_user"
+      DB_MYSQL_PASSWORD: "npm_password"
+      DB_MYSQL_NAME: "npm_db"
+    volumes:
+      - ./nginx-proxy-manager/data:/data
+      - ./nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+    networks:
+      - survey-network
+    depends_on:
+      - mysql
+
+  # 2. MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: survey_db
+      MYSQL_USER: survey_user
+      MYSQL_PASSWORD: survey_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - survey-network
+
+  # 3. Redis (세션 공유)
+  redis:
+    image: redis:7-alpine
+    container_name: redis-session
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass redis_password
+    volumes:
+      - redis-data:/data
+    networks:
+      - survey-network
+
+  # 4. Backend Auth Service (FastAPI 1)
+  backend-auth:
+    build:
+      context: ./backend-auth
+      dockerfile: Dockerfile
+    container_name: backend-auth
+    restart: unless-stopped
+    ports:
+      - "8001:8000"
+    environment:
+      - DATABASE_URL=mysql+pymysql://survey_user:survey_password@mysql:3306/survey_db
+      - REDIS_URL=redis://:redis_password@redis:6379/0
+      - SECRET_KEY=your-super-secret-key-change-this-in-production
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - survey-network
+    volumes:
+      - ./backend-auth:/app
+
+  # 5. Backend Survey Service (FastAPI 2)
+  backend-survey:
+    build:
+      context: ./backend-survey
+      dockerfile: Dockerfile
+    container_name: backend-survey
+    restart: unless-stopped
+    ports:
+      - "8002:8000"
+    environment:
+      - DATABASE_URL=mysql+pymysql://survey_user:survey_password@mysql:3306/survey_db
+      - REDIS_URL=redis://:redis_password@redis:6379/0
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AUTH_SERVICE_URL=http://backend-auth:8000
+    depends_on:
+      - mysql
+      - redis
+      - backend-auth
+    networks:
+      - survey-network
+    volumes:
+      - ./backend-survey:/app
+
+  # 6. Frontend (React)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend-react
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_AUTH_API_URL=http://localhost:8001
+      - REACT_APP_SURVEY_API_URL=http://localhost:8002
+    depends_on:
+      - backend-auth
+      - backend-survey
+    networks:
+      - survey-network
+
+networks:
+  survey-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+  redis-data:
