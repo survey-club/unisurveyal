@@ -8,8 +8,6 @@ services:
       - "80:80"
       - "443:443"
       - "81:81"
-    volumes:
-      - npm-letsencrypt:/etc/letsencrypt
     networks:
       - survey-network
     depends_on:
@@ -103,4 +101,3 @@ networks:
 volumes:
   mysql-data:
   redis-data:
-  npm-letsencrypt:

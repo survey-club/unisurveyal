@@ -8,36 +8,54 @@
 
 ## 설치 방법
 
-### 1. hosts 파일 수정
+### 1. Docker Compose 실행
+```bash
+docker compose pull
+docker compose up -d
+```
+
+### 2. 서버 IP 확인
+```bash
+# Linux/Mac
+ip addr | grep inet
+# 또는
+hostname -I
+```
+예: `192.168.64.8`
+
+### 3. hosts 파일 수정 (접속할 PC에서)
 
 **Mac/Linux:**
 ```bash
-sudo sh -c 'echo "127.0.0.1 unisurveyal.com auth.unisurveyal.com survey.unisurveyal.com" >> /etc/hosts'
+sudo sh -c 'echo "<서버IP> unisurveyal.com auth.unisurveyal.com survey.unisurveyal.com" >> /etc/hosts'
+```
+예시:
+```bash
+sudo sh -c 'echo "192.168.64.8 unisurveyal.com auth.unisurveyal.com survey.unisurveyal.com" >> /etc/hosts'
 ```
 
 **Windows:**
 관리자 권한으로 메모장 실행 후 `C:\Windows\System32\drivers\etc\hosts` 파일에 추가:
 ```
-127.0.0.1 unisurveyal.com auth.unisurveyal.com survey.unisurveyal.com
+<서버IP> unisurveyal.com auth.unisurveyal.com survey.unisurveyal.com
 ```
 
-### 2. Docker Compose 실행
+**로컬에서 실행하는 경우:**
 ```bash
-# 최신 이미지 다운로드 및 실행
-docker-compose pull
-docker-compose up -d
+sudo sh -c 'echo "127.0.0.1 unisurveyal.com auth.unisurveyal.com survey.unisurveyal.com" >> /etc/hosts'
 ```
 
-**캐시 문제 발생 시:**
-```bash
-docker-compose down
-docker system prune -a -f
-docker-compose pull
-docker-compose up -d
-```
-
-### 3. 서비스 접속
+### 4. 서비스 접속
 브라우저에서 `http://unisurveyal.com` 접속
+
+## 캐시 문제 발생 시
+```bash
+docker rm -f $(docker ps -aq)
+docker system prune -a -f
+docker volume prune -f
+docker compose pull
+docker compose up -d
+```
 
 ## 컨테이너 구성 (6개)
 | 컨테이너 | 역할 |

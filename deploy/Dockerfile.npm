@@ -1,3 +1,4 @@
 FROM jc21/nginx-proxy-manager:latest
 
 COPY ./npm-data /data
+RUN mkdir -p /etc/letsencrypt
