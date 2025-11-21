@@ -1,0 +1,265 @@
+.profile-container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 40px 20px;
+}
+
+.profile-header {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #666666;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #f5f5f5;
+  color: #333333;
+}
+
+.profile-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333333;
+  margin: 0;
+}
+
+.profile-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-form {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 40px;
+  border: 1px solid #f0f0f0;
+}
+
+.profile-section {
+  margin-bottom: 40px;
+}
+
+.profile-section:last-of-type {
+  margin-bottom: 32px;
+}
+
+.profile-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.section-description {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #333333;
+}
+
+.profile-image-preview {
+  margin-top: 16px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #e0e0e0;
+}
+
+.profile-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.profile-actions button {
+  flex: 1;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 20px 15px;
+  }
+
+  .profile-form {
+    padding: 24px;
+  }
+
+  .profile-header {
+    margin-bottom: 24px;
+  }
+
+  .profile-header h1 {
+    font-size: 24px;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+  }
+}
+
+/* 모달 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333333;
+  margin: 0 0 12px 0;
+}
+
+.modal-content p {
+  font-size: 14px;
+  color: #666666;
+  margin: 0 0 24px 0;
+}
+
+.modal-content .input-field {
+  margin-bottom: 16px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.modal-actions .btn {
+  flex: 1;
+}
+
+/* 배경 이미지 미리보기 */
+.background-image-preview {
+  margin-top: 12px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #e0e0e0;
+}
+
+.background-image-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.6;
+}
+
+/* 색상 옵션 */
+.color-options {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.color-option {
+  flex: 1;
+  min-width: 150px;
+  padding: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.color-option:hover {
+  border-color: #333333;
+  background-color: #f5f5f5;
+}
+
+.color-option.selected {
+  border-color: #333333;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.color-preview {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.preview-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+}
+
+/* 초록색 미리보기 */
+.color-preview.green .level-1 { background-color: #9be9a8; }
+.color-preview.green .level-2 { background-color: #40c463; }
+.color-preview.green .level-3 { background-color: #30a14e; }
+.color-preview.green .level-4 { background-color: #216e39; }
+
+/* 파란색 미리보기 */
+.color-preview.blue .level-1 { background-color: #9db7f5; }
+.color-preview.blue .level-2 { background-color: #6495ed; }
+.color-preview.blue .level-3 { background-color: #4169e1; }
+.color-preview.blue .level-4 { background-color: #0047ab; }
+
+/* 빨간색 미리보기 */
+.color-preview.red .level-1 { background-color: #ff9999; }
+.color-preview.red .level-2 { background-color: #ff6666; }
+.color-preview.red .level-3 { background-color: #ff3333; }
+.color-preview.red .level-4 { background-color: #cc0000; }
+
+.color-option span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+}

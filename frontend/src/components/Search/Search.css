@@ -1,0 +1,306 @@
+.search-container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 40px 20px;
+}
+
+.search-header {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #666666;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #f5f5f5;
+  color: #333333;
+}
+
+.search-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333333;
+  margin: 0;
+}
+
+.search-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.search-form {
+  margin-bottom: 40px;
+}
+
+.search-input-wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  padding: 16px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #333333;
+  box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
+}
+
+.search-btn {
+  padding: 16px 32px;
+  white-space: nowrap;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.loading-container .loader {
+  margin: 0 auto 20px;
+}
+
+.loading-container p {
+  color: #666666;
+  font-size: 16px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666666;
+}
+
+.no-results p {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.search-results {
+  margin-top: 40px;
+}
+
+.results-header {
+  margin-bottom: 24px;
+}
+
+.results-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333333;
+  margin: 0;
+}
+
+.surveys-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.survey-card {
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.survey-card:hover {
+  border-color: #e0e0e0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.survey-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.survey-emoji {
+  font-size: 32px;
+}
+
+.survey-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.survey-date {
+  font-size: 13px;
+  color: #999999;
+}
+
+.survey-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.survey-title:hover {
+  color: #000000;
+}
+
+.survey-abstract {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.survey-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: #f5f5f5;
+  color: #666666;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.survey-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.btn-small {
+  padding: 10px 20px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.search-placeholder {
+  text-align: center;
+  padding: 80px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.placeholder-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  opacity: 0.3;
+}
+
+.search-placeholder h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333333;
+  margin: 0 0 12px 0;
+}
+
+.search-placeholder > p {
+  font-size: 16px;
+  color: #666666;
+  margin: 0 0 40px 0;
+}
+
+.search-tips {
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: left;
+}
+
+.search-tips h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+  margin: 0 0 16px 0;
+}
+
+.search-tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-tips li {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.search-tips li::before {
+  content: '💡';
+  position: absolute;
+  left: 0;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .search-container {
+    padding: 20px 15px;
+  }
+
+  .search-header h1 {
+    font-size: 24px;
+  }
+
+  .search-input-wrapper {
+    flex-direction: column;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+
+  .surveys-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .survey-actions {
+    flex-direction: column;
+  }
+
+  .search-placeholder {
+    padding: 40px 20px;
+  }
+
+  .placeholder-icon {
+    font-size: 60px;
+  }
+
+  .search-placeholder h2 {
+    font-size: 22px;
+  }
+}

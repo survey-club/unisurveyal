@@ -1,0 +1,4 @@
+[21/Nov/2025:07:42:00 +0000] 200 - GET http unisurveyal.com "/" [Client 151.101.3.42] [Length 568] [Gzip 1.86] "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" "-"
+[21/Nov/2025:07:42:00 +0000] 400 - GET http unisurveyal.com "/favicon.ico" [Client 127.0.0.1] [Length 230] [Gzip -] "-" "-"
+[21/Nov/2025:07:42:23 +0000] 200 - GET http unisurveyal.com "/" [Client 151.101.3.42] [Length 568] [Gzip 1.86] "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" "-"
+[21/Nov/2025:07:42:24 +0000] 200 - GET http unisurveyal.com "/" [Client 151.101.3.42] [Length 568] [Gzip 1.86] "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" "-"

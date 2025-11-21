@@ -1,0 +1,106 @@
+services:
+  # Nginx Proxy Manager (프록시 설정 포함)
+  nginx-proxy-manager:
+    image: dlarbdus/unisurveyal-npm:latest
+    container_name: nginx-proxy-manager
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "81:81"
+    volumes:
+      - npm-letsencrypt:/etc/letsencrypt
+    networks:
+      - survey-network
+    depends_on:
+      - frontend
+      - backend-auth
+      - backend-survey
+
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: survey_db
+      MYSQL_USER: survey_user
+      MYSQL_PASSWORD: survey_password
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - survey-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  # Redis
+  redis:
+    image: redis:7-alpine
+    container_name: redis-session
+    restart: unless-stopped
+    command: redis-server --requirepass redis_password
+    volumes:
+      - redis-data:/data
+    networks:
+      - survey-network
+
+  # Backend Auth Service
+  backend-auth:
+    image: dlarbdus/unisurveyal-backend-auth:latest
+    container_name: backend-auth
+    restart: unless-stopped
+    expose:
+      - "8000"
+    environment:
+      - DATABASE_URL=mysql+pymysql://survey_user:survey_password@mysql:3306/survey_db
+      - REDIS_URL=redis://:redis_password@redis:6379/0
+      - SECRET_KEY=your-super-secret-key-change-this-in-production
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - survey-network
+
+  # Backend Survey Service
+  backend-survey:
+    image: dlarbdus/unisurveyal-backend-survey:latest
+    container_name: backend-survey
+    restart: unless-stopped
+    expose:
+      - "8000"
+    environment:
+      - DATABASE_URL=mysql+pymysql://survey_user:survey_password@mysql:3306/survey_db
+      - REDIS_URL=redis://:redis_password@redis:6379/0
+      - AUTH_SERVICE_URL=http://backend-auth:8000
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - survey-network
+
+  # Frontend
+  frontend:
+    image: dlarbdus/unisurveyal-frontend:latest
+    container_name: frontend-react
+    restart: unless-stopped
+    expose:
+      - "80"
+    networks:
+      - survey-network
+
+networks:
+  survey-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+  redis-data:
+  npm-letsencrypt:

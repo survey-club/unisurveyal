@@ -1,0 +1,8 @@
+[21/Nov/2025:08:22:43 +0000] 404 - GET http unisurveyal.com "/login" [Client 151.101.3.42] [Length 183] [Gzip 3.21] "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" "-"
+[21/Nov/2025:08:22:44 +0000] 404 - GET http unisurveyal.com "/login" [Client 151.101.3.42] [Length 183] [Gzip 3.21] "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" "-"
+[21/Nov/2025:08:23:00 +0000] 404 - GET http unisurveyal.com "/login" [Client 151.101.3.42] [Length 183] [Gzip 3.21] "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" "-"
+[21/Nov/2025:08:23:01 +0000] 400 - GET http unisurveyal.com "/favicon.ico" [Client 127.0.0.1] [Length 230] [Gzip -] "-" "-"
+[21/Nov/2025:08:23:01 +0000] 404 - GET http unisurveyal.com "/login" [Client 151.101.3.42] [Length 183] [Gzip 3.21] "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" "-"
+[21/Nov/2025:08:23:44 +0000] 200 - GET http localhost "/" [Client 151.101.3.42] [Length 568] [Gzip 1.86] "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36" "-"
+[21/Nov/2025:08:23:44 +0000] 404 - GET http localhost "/.well-known/appspecific/com.chrome.devtools.json" [Client 151.101.3.42] [Length 183] [Gzip 3.21] "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" "-"
+[21/Nov/2025:08:23:46 +0000] 400 - GET http localhost "/favicon.ico" [Client 127.0.0.1] [Length 230] [Gzip -] "-" "-"

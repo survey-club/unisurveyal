@@ -1,0 +1,221 @@
+.survey-detail-container {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* 헤더 */
+.detail-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 24px 40px;
+}
+
+.btn-back {
+  background: none;
+  border: 1px solid #e0e0e0;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #f5f5f5;
+  border-color: #333333;
+}
+
+/* 메인 콘텐츠 */
+.detail-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.detail-emoji {
+  font-size: 80px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.detail-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333333;
+  line-height: 1.4;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.detail-meta {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.meta-item {
+  font-size: 14px;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 섹션 */
+.detail-section {
+  margin-bottom: 48px;
+}
+
+.detail-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16px;
+}
+
+/* 키워드 */
+.keywords-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* 저자 */
+.authors-text {
+  font-size: 15px;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* Abstract */
+.abstract-box {
+  background-color: #f9f9f9;
+  padding: 32px;
+  border-radius: 12px;
+  border-left: 4px solid #333333;
+}
+
+.abstract-box p {
+  font-size: 15px;
+  color: #333333;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* 상태 버튼 */
+.status-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.status-btn {
+  padding: 12px 24px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #666666;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.status-btn:hover {
+  background-color: #f5f5f5;
+  border-color: #333333;
+}
+
+.status-btn.active {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+/* ArXiv 버튼 */
+.detail-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 64px;
+}
+
+.arxiv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 40px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+/* 로딩 및 에러 */
+.loading-container,
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.error-container p {
+  font-size: 18px;
+  color: #666666;
+  margin-bottom: 24px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .detail-header {
+    padding: 20px 24px;
+  }
+
+  .detail-main {
+    padding: 40px 24px;
+  }
+
+  .detail-title {
+    font-size: 28px;
+  }
+
+  .detail-emoji {
+    font-size: 64px;
+  }
+
+  .detail-meta {
+    gap: 16px;
+  }
+
+  .abstract-box {
+    padding: 24px;
+  }
+
+  .status-buttons {
+    flex-direction: column;
+  }
+
+  .status-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-title {
+    font-size: 24px;
+  }
+
+  .detail-emoji {
+    font-size: 56px;
+  }
+
+  .detail-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
